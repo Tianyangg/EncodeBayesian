@@ -530,12 +530,12 @@ int cnf::encode(bayesnet *bn){
             expr.LITERALS += bn->states[i];
     }
 
-    expr.variable_to_literal.resize(VARIABLES);
-    expr.literal_to_variable.resize(expr.LITERALS+1);
+    expr.variable_to_literal.resize(VARIABLES); // resize var_to_lit (uint32) array to the size of bayesian network
+    expr.literal_to_variable.resize(expr.LITERALS+1); // resize to nr of literals in the expr + 1
     unsigned int l = 1;
     for(unsigned int i = 0; i < VARIABLES; i++){
-        expr.variable_to_literal[i] = l;
-        if(OPT_BOOL && expr.values[i] == 2){
+        expr.variable_to_literal[i] = l; // expr is of type expression_t, find it in cnf.h; expression_t is of type expression(class) which is defined in cnf.h
+        if(OPT_BOOL && expr.values[i] == 2){ // OPT_BOOL is boolean recognition
             expr.literal_to_variable[l] = i;
             l += 1;
         } else {

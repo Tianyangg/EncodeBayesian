@@ -73,7 +73,7 @@ class expression {
 };
 
 typedef clause clause_t;
-typedef expression expression_t;
+typedef expression expression_t; // assigns a nickname to expression and call it expression_t instead. Look here for more info: https://en.cppreference.com/w/cpp/language/typedef
 
 
 

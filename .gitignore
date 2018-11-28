@@ -26,3 +26,5 @@ obj
 lib*
 /include
 
+.idea
+
